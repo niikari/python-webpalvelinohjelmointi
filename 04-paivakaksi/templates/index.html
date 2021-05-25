@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% if list %}
+		{% for sana in list %}
+		<p>{{ sana }}</p>
+		{% endfor %}
+	{% else %}
+		<p>Ei sanoja listassa</p>
+	{% endif %}
+{% endblock content %}
