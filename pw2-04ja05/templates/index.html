@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if tulos %}
+<p>Luvut kerrottuna keskenään on yhteensä: {{ tulos }}</p>
+{% endif %}
+<form method=POST>
+	Nimi:<br>
+	<input type="text" name="name"><br>
+
+	Salasana:<br>
+	<input type="password" name="password"><br>
+
+	Email:<br>
+	<input type="email" name="email"><br>
+
+	<label>Vahvista: <input type="checkbox" name="check"></label><br>
+
+	<p>Harjoitetaan vielä kertomista, anna pari numeroa</p>
+
+	Eka numero:<br>
+	<input type="number" name="first"><br>
+
+	Toka numero:<br>
+	<input type="number" name="second"><br>
+	
+	<input type="submit" value="Lähetä">	
+
+</form>	
+{% endblock content %}
