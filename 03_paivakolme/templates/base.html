@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Flash messages</title>
+		<meta charset="utf-8">
+	</head>
+	</body>
+		<nav>
+			<a href="/">Homepage</a>-
+			<a href="/msg">Messages</a>
+		</nav>
+	
+		<h1>Flash messages</h1>
+		{% if get_flashed_messages() %}
+			{% for msg in get_flashed_messages() %}
+			<p>{{ msg }}</p>
+			{% endfor %}
+		
+		{% endif %}
+		
+
+		{% block content %}
+		
+		{% endblock content %}
+			
+	</body>
+</html>
