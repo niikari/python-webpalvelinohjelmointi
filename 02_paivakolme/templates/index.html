@@ -4,7 +4,9 @@
 
 <form method=POST>
 	{% for i in form %}
+	{% if not i.flags.hidden %}
 	<p>{{ i.label }}: {{ i }}</p>
+	{% endif %}
 	{% endfor %}
 	<input type="submit" value="Send">
 </form>
