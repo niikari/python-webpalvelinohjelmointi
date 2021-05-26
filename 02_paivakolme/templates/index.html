@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method=POST>
+	{% for i in form %}
+	<p>{{ i.label }}: {{ i }}</p>
+	{% endfor %}
+	<input type="submit" value="Send">
+</form>
+
+{% endblock content %}
