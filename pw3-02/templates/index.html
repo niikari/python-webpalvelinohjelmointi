@@ -1,0 +1,34 @@
+{% set title = "Todos" %}
+
+{% extends "base.html" %}
+
+{% block content %}
+	<form method=POST>
+	{% for i in form %}
+		{% if not i.flags.hidden %}
+		<p>{{ i.label }}{{ i }}</p>
+		{% endif %}
+	{% endfor %}
+		<input type="submit" value="Send">
+	
+	
+	</form>
+
+	<table>
+		<tr>
+			<td>Todos</td>
+			<td>Done?</td>
+		</tr>
+		{% for todo in todos %}
+		<tr>
+			<td>{{ todo.todo }}</td>
+			{% if todo.done %}
+			<td>Done</td>
+			{% else %}
+			<td>Do it asap</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</table>
+	
+{% endblock content %}

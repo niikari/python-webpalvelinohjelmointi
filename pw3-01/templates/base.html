@@ -1,0 +1,25 @@
+{% if not title %}
+	{% set title = "Flash" %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang=en>
+	<head>
+		<title>
+			{{ title }}
+		</title>
+	</head>
+	<body>
+		<nav>
+			<a href="/first">Get first message</a> - 
+			<a href="/second">Get second message</a>
+		</nav>
+		<h1>{{ title }}</h1>
+		{% if get_flashed_messages() %}
+			{% for msg in get_flashed_messages() %}
+			 <p>Message sent from another template: {{ msg }}</p>
+			{% endfor %}
+		{% endif %}
+		
+	</body>
+</html>
