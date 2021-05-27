@@ -1,0 +1,25 @@
+{% set title = "Lainasto" %}
+
+{% extends "base.html" %}
+
+{% block content %}
+	{% if esineet %}
+	<h2>Lainatut esineet</h2>
+		<table>
+			<tr>
+				<td>Esine</td>
+				<td>Kenellä lainassa</td>
+				<td></td>
+				<td></td>
+			</tr>
+			{% for esine in esineet %}
+			<tr>
+				<td>{{ esine.esine }}</td>
+				<td>{{ esine.lainassa }}</td>
+				<td><a href="/edit/{{ esine.id }}">Muokkaa</a></td> 
+				<td><a href="/delete/{{ esine.id }}">Poista</a></td>
+			</tr>		
+			{% endfor %}
+		</table>
+	{% endif %}
+{% endblock content %}
