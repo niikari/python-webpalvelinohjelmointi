@@ -1,0 +1,23 @@
+{% if not title %}
+{% set title = Cars %}
+{% endif %}
+
+<!doctype html>
+<html lang=en>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<nav>
+			<a href="/">All cars</a> - 
+			<a href="/add">Add new car</a>
+		</nav>
+		<h1>{{ title }}</h1>
+				
+		{% block content %}
+
+		{% endblock content %}
+		
+	</body>
+</html>

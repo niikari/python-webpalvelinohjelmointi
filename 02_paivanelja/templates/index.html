@@ -1,0 +1,37 @@
+{% set title = "Car apps" %}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+	{% if get_flashed_messages() %}
+
+		{% for msg in get_flashed_messages() %}
+		<p><b>{{ msg }}</b></p>
+		{% endfor %}
+		
+	{% endif %}
+	
+	{% if cars %}
+
+		<table>
+			<tr>
+				<td>Reg. number</td>
+				<td>Make</td>
+				<td>Model</td>
+				<td>Model year</td>
+			</tr>
+			{% for car in cars %}
+			<tr>
+				<td>{{ car.reg }}</td>
+				<td>{{ car.make }}</td>
+				<td>{{ car.model }}</td>
+				<td>{{ car.modyear }}</td>
+			</tr>
+			{% endfor %}
+			
+		</table>
+
+	{% endif %}
+	
+{% endblock content %}
