@@ -1,0 +1,23 @@
+{% if not title %}
+{% set title = "Osoitekirja" %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang=en>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<meta name=viewport content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<nav>
+			<a href="/">Asiakasluettelo</a> - 
+			<a href="/add">Lisää uusi asiakas</a>
+		</nav>
+		<h1>{{ title }}</h1>
+
+		{% block content %}
+
+		{% endblock content %}
+	</body>
+</html>

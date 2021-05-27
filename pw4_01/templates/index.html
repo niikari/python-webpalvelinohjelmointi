@@ -1,0 +1,34 @@
+{% set title = "Osoitekirja" %}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+	{% for msg in get_flashed_messages() %}
+	<p><b>{{ msg }}</b></p>
+	{% endfor %}
+	
+	{% if asiakkaat %}
+		<h2>Rekisterissä olevat asiakkaat</h2>
+		<table>
+			<tr>
+				<td>Etunimi</td>
+				<td>Sukunimi</td>
+				<td>Email</td>
+				<td>Puhelin</td>
+				<td></td>
+				<td></td>
+			</tr>
+			{% for asiakas in asiakkaat %}
+			<tr>
+				<td>{{ asiakas.etunimi }}</td>
+				<td>{{ asiakas.sukunimi }}</td>
+				<td>{{ asiakas.email }}</td>
+				<td>{{ asiakas.puhelin }}</td>
+				<td><a href="/edit/{{ asiakas.id }}">Muokkaa</a></td>
+				<td><a href="/delete/{{ asiakas.id }}">Poista</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+	{% endif %}	
+{% endblock content %}
