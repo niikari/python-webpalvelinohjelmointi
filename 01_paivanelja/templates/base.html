@@ -1,0 +1,31 @@
+{% if not title %}
+{% set title = "Twitter" %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang=en>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf8">
+		<meta name=viewport content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+	<nav>
+		<a href="/">All tweets!</a> - 
+		<a href="/tweet">Tweet</a>
+	</nav>
+
+		{% if get_flashed_messages() %}
+			{% for msg in get_flashed_messages() %}
+			<p><b>{{ msg }}</b></p>
+			{% endfor %}
+		{% endif %}
+		
+		<h1>{{ title }}</h1>
+
+		{% block content %}
+
+		{% endblock content %}
+		
+	</body>
+</html>

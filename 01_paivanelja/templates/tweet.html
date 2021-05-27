@@ -1,0 +1,19 @@
+{% set title = "Please tweet" %}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method=POST>
+{% for field in form %}
+	{% if not field.flags.hidden %}
+	<p>
+	{{ field.label }}
+	<p>
+	{% endif %}
+<p>{{ field }}</p>
+{% endfor %}
+<input type="submit" value="Tweet">
+</form>
+
+{% endblock content %}

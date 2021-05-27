@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if tweets %}
+<h2>Tweets</h2>
+<table>
+	<tr>
+		<td>Tweeter</td>
+		<td>Tweet</td>
+	</tr>
+	{% for tweet in tweets %}
+	<tr>
+		<td>{{ tweet.tweeter }}</td>
+		<td>{{ tweet.tweet }}</td>
+	</tr>
+	{% endfor %}
+	
+</table>
+{% endif %}
+
+{% endblock content %}
