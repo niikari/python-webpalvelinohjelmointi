@@ -20,16 +20,25 @@ CarForm = model_form(Car, base_class=FlaskForm, db_session=db.session)
 def initDb():
     db.create_all()
 
+@app.route("/edit/<int:id>", methods=["GET", "POST"])
 @app.route("/add", methods=["GET", "POST"])
-def addCar():
-    form = CarForm()
+def addCar(id=None):
+    car = Car()
+    if id:
+        car = Car.query.get_or_404(id) # m
+        
+    form = CarForm(obj=car)
 
     if form.validate_on_submit(): # m
-        car = Car()
+        
         form.populate_obj(car)
         db.session.add(car)
         db.session.commit()
-        flash("Car added succesfully!")
+        if id:
+            flash("Car modifyid succesfully")
+        else:    
+            flash("Car added succesfully!")
+            
         return redirect("/")
     
     return render_template("add.html", form=form)
