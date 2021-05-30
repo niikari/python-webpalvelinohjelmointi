@@ -1,0 +1,18 @@
+{% set title = "Please register" %}
+
+{% extends "base.html" %}
+
+{% block content %}
+<form method=POST>
+	{% for field in form %}
+		{% if not field.flags.hidden %}
+			<p>{{ field.label }}</p>
+		{% endif %}
+			<p>{{ field }}</p>
+			{%for err in field.errors %}
+			<b>{{ err }}</b>
+			{% endfor %}
+	{% endfor %}
+	<input type="submit" value={{ button }}>
+</form>
+{% endblock content %}

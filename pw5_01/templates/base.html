@@ -1,0 +1,41 @@
+{% if not title %}
+{% set title = "Books" %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang=en>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<meta name=viewport content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<nav>
+			<b>
+			<a href="/">All Books</a> - 
+			<a href="/books/add">Add new book</a> -
+			{% if not currentUser() %}
+			<a href="/users/login">Login</a> -
+			{% else %}
+			<a href="/users/logout">Logout</a> -
+			{% endif %} 
+			<a href="/users/register">Register</a>
+			</b>  
+		</nav>
+
+		{% if currentUser() %}
+		<p>Logged in as: {{ currentUser().email }}</p>
+		{% endif %}
+
+		{% for msg in get_flashed_messages() %}
+		<p><b>{{ msg }}</b></p>
+		{% endfor %}
+		
+		<h1>{{ title }}</h1>
+
+		{% block content %}
+
+		{% endblock content %}
+			
+	</body>
+</html>
